@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from .models import Box, Record
+from .models import Box, BoxControls
 
-class RecordSerializer(serializers.ModelSerializer):
+class BoxControlsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Record
+        model = BoxControls
         fields = '__all__'
 
 class BoxSerializer(serializers.ModelSerializer):
-    records = RecordSerializer(many=True, read_only=True)
+    controls = BoxControlsSerializer(many=True, read_only=True)
 
     class Meta:
         model = Box
-        fields = ['id', 'name', 'icon', 'total', 'createdAt', 'records']
+        fields = ['id', 'name', 'icon', 'total', 'cantPriceFields', 'createdAt', 'controls']

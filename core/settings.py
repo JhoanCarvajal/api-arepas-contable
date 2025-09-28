@@ -12,13 +12,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import environ # Import environ
-
-# Initialize environment variables
-env = environ.Env()
-environ.Env.read_env()
+import os # Import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -45,7 +46,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'boxes',
-    'history',
+    'expenses.apps.ExpensesConfig',
+    'weeklybalances',
+    'expensesboxes',
 ]
 
 MIDDLEWARE = [
