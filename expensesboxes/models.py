@@ -1,7 +1,7 @@
 from django.db import models
 
 class ExpensesBoxes(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    id = models.BigIntegerField(primary_key=True)
     expense = models.ForeignKey('expenses.Expenses', on_delete=models.CASCADE)
     box = models.ForeignKey('boxes.Box', on_delete=models.CASCADE)
     boxControl = models.ForeignKey('boxes.BoxControls', on_delete=models.CASCADE)

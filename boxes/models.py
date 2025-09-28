@@ -1,7 +1,7 @@
 from django.db import models
 
 class Box(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    id = models.BigIntegerField(primary_key=True)
     name = models.CharField(max_length=255)
     icon = models.CharField(max_length=255, blank=True, null=True)
     total = models.IntegerField()
@@ -17,7 +17,7 @@ class Box(models.Model):
         return self.name
 
 class BoxControls(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    id = models.BigIntegerField(primary_key=True)
     box = models.ForeignKey(Box, related_name='controls', on_delete=models.CASCADE)
     date = models.DateField()
     origin = models.CharField(max_length=100)

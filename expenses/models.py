@@ -1,7 +1,7 @@
 from django.db import models
 
 class Expenses(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    id = models.BigIntegerField(primary_key=True)
     weeklyBalance = models.ForeignKey('weeklybalances.WeeklyBalance', on_delete=models.CASCADE, related_name='expenses')
     date = models.DateField()
     earnings = models.IntegerField()
