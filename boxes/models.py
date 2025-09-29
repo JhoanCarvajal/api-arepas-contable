@@ -27,6 +27,7 @@ class BoxControls(models.Model):
     note = models.TextField(blank=True, null=True)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
+    deletedAt = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         ordering = ['-date']

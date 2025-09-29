@@ -5,6 +5,7 @@ class ExpensesBoxes(models.Model):
     expense = models.ForeignKey('expenses.Expenses', on_delete=models.CASCADE)
     box = models.ForeignKey('boxes.Box', on_delete=models.CASCADE)
     boxControl = models.ForeignKey('boxes.BoxControls', on_delete=models.CASCADE)
+    deletedAt = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Gasto de Caja"

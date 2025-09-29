@@ -8,6 +8,7 @@ class Expenses(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     totalExpenses = models.IntegerField()
     netProfit = models.IntegerField()
+    deletedAt = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         ordering = ['-date']
